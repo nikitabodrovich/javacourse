@@ -33,19 +33,20 @@ public class Airplane {
         this.length = length;
         this.weight = weight;
     }
-    int fillUp(int n){
+    public void fillUp(int n){
         fuel = this.fuel+n;
-        return fuel;
     }
     void info() {
         System.out.println("Изготовитель: "+manufacturer+", Длина: "+length+", Вес: "+weight+", Количество топлива в баке: "+fuel);
     }
 
     public static void compareAirplanes(Airplane p1,Airplane p2){
-        if (p1.getLength()>p2.getLength()){
+        if (p1.getLength() < p2.getLength()) {
+            System.out.println("Второй самолёт длиннее");
+        } else if (p1.getLength()>p2.getLength()){
             System.out.println("Первый самолёт длиннее");
         } else {
-            System.out.println("Второй самолёт длиннее");
+            System.out.println("Самолёты равны");
         }
     }
 }

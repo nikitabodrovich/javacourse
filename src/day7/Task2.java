@@ -19,5 +19,6 @@ public class Task2 {
         }
         System.out.println("Игрок выбыл...:с");
         Player.info();
+
     }
 }

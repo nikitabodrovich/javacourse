@@ -6,24 +6,38 @@ public class Player {
     private static final int MIN_STAMINA = 0;
     private static int countPlayers;
 
-    public Player(int stamina){
+    public Player(int stamina) {
         this.stamina = stamina;
-        while (countPlayers<6){
-        countPlayers++;
+        if (countPlayers < 6) {
+            countPlayers++;
         }
     }
-    public int getStamina(){
+
+    public int getStamina() {
         return stamina;
     }
-    public int getCountPlayers(){
+
+    public int getCountPlayers() {
         return countPlayers;
     }
-    void run(){
-            stamina--;
-            if (stamina==0){
-         countPlayers--;
-            }
+
+    void run() {
+        if (stamina == 0) {
+            return;
+        }
+        stamina--;
+
+        if(stamina==0){
+        countPlayers--;
+        }
     }
+
+    {
+        countPlayers--;
+    }
+
+
+
     static void info(){
         if (countPlayers<6){
             switch(countPlayers){
