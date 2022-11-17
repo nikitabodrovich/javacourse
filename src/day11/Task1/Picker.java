@@ -7,7 +7,8 @@ public class Picker implements Worker {
     private int salary;
     private int isPayed;
     private Warehouse wh;
-    private int plusPicked;
+    private final int BONUS_PAYED = 70000;
+    private final int ONE_ORDER_SALARY = 80;
 
     public Picker(int salary, int isPayed, Warehouse wh) {
         this.salary = salary;
@@ -31,19 +32,19 @@ public class Picker implements Worker {
     @Override
     public void doWork() {
         wh.plusPicked();
-        salary += 80;
+        salary += ONE_ORDER_SALARY;
     }
 
     @Override
     public void bonus() {
-        if (wh.getCountPickedOrders() < 10000 || getSalary()<salary*1000) {
+        if (wh.getCountPickedOrders() < wh.ORDERS_TO_BONUS || getSalary()<salary*wh.WORKER_ORDERS_TO_BONUS) {
             System.out.println("Бонус пока не доступен");
 
         }
         if (isPayed>0) {
             System.out.println("Бонус уже был выплачен");
         } else  {
-            isPayed+=70000;
+            isPayed+=BONUS_PAYED;
         }
     }
 }

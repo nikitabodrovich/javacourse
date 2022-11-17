@@ -7,22 +7,19 @@ public abstract class Hero implements PhysAttack {
     protected int physAtt;
     protected int physDef;
     protected int magicDef;
-    protected int magicAtt;
 
-    public Hero(int physDef, int magicDef, int physAtt, int magicAtt) {
-        this.health = 100;
-        this.physDef = physDef;
-        this.magicDef = magicDef;
-        this.physAtt = physAtt;
-        this.magicAtt = magicAtt;
+    public Hero() {
+        health = 100;
     }
 
 
     @Override
     public void physicalAttack(Hero hero) {
-        hero.health -=physAtt-physAtt*hero.physDef/100;
-        if (hero.health<MIN_HEALTH){
-            hero.health = 0;
+        int attackValue = physAtt-(physAtt*hero.physDef/100);
+        if (hero.health - attackValue<MIN_HEALTH){
+            hero.health = MIN_HEALTH;
+        } else {
+            hero.health-=attackValue;
         }
     }
 }

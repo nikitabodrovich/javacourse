@@ -1,10 +1,14 @@
 package day11.Task1;
 
+import java.security.PrivilegedAction;
+
 public class Courier implements Worker {
     private int salary;
     private int isPayed;
     private Warehouse wh;
-    private int plusDelivered;
+    private final int BONUS_PAYED = 50000;
+    private final int ONE_ORDER_SALARY = 100;
+
 
     public Courier(int salary, int isPayed, Warehouse wh){
         this.wh = wh;
@@ -24,17 +28,17 @@ public class Courier implements Worker {
     @Override
     public void doWork(){
         wh.plusDelivered();
-        salary +=100;
+        salary +=ONE_ORDER_SALARY;
     }
     @Override
     public void bonus(){
-        if (wh.getCountDeliveredOrders()<10000 || getSalary()<salary*1000) {
+        if (wh.getCountDeliveredOrders()<wh.ORDERS_TO_BONUS|| getSalary()<salary*wh.WORKER_ORDERS_TO_BONUS) {
             System.out.println("Бонус пока не доступен");
         }
         if (isPayed>0) {
             System.out.println("Бонус уже был выплачен");
         } else  {
-            isPayed+=50000;
+            isPayed+=BONUS_PAYED;
         }
     }
 
