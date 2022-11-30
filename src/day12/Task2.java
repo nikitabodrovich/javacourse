@@ -8,30 +8,23 @@ public class Task2 {
         List<Integer> list = new ArrayList<>();
         addNumbers(0,30,list);
         addNumbers(300,350,list);
-        System.out.println(list);
-
-
+        addNumbers(400,430,list);
+        addNumbers(500,550,list);
+        addNumbers(620,690,list);
+        addNumbers(780,910,list);
+        addNumbers(1000,1030,list);
+        addNumbers(1130,1300,list);
+        addNumbers(1350,1530,list);
+        addNumbers(1600,1750,list);
     }
 
     public static void addNumbers(int a, int b, List<Integer> someList){
-
-        if (a==0 && b == 30){
-            for (int i=0; i-1<30; i++){
+            for (int i=a; i<=b; i++){
                 if (i%2 == 0){
                     someList.add(i);
                 }
             }
-        } else if (a == 300 && b == 350){
-            for (int j = 300; j-1<350; j++){
-                if (j%2==0){
-                    someList.add(j);
-                }
-            }
-        }
-        else {
-            System.out.println("Invalid interval");
-        }
-
+        System.out.println(someList);
     }
 
 }
