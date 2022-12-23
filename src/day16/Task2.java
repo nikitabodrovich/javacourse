@@ -29,11 +29,12 @@ public class Task2 {
                 for (int i = 0; i<numbersArray.length; i++){
                     sum += Integer.parseInt(numbersArray[i]);
                     counter++;
-                    double average = (double)sum/counter;
 
                     if (counter == 20){
+                        double average = (double)sum/counter;
                         pw2.print(average+" ");
                         counter = 0;
+                        sum = 0;
                     }
                 }
             }

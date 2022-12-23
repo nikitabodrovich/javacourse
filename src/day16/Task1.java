@@ -14,13 +14,11 @@ public class Task1 {
             Scanner scanner = new Scanner(file);
             String line = scanner.nextLine();
             String[] numbersArray = line.split(" ");
-            int counter = 0;
             int sumNumbers = 0;
             for (String number: numbersArray){
-                counter++;
                 sumNumbers+= Integer.parseInt(number);
             }
-            double average = (double)sumNumbers/counter;
+            double average = (double)sumNumbers/numbersArray.length;
             scanner.close();
             System.out.printf(average+" ----> "+"%.3f", average);
 
